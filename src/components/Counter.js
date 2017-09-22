@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { Button } from 'react-native-elements';
 
 const styles = StyleSheet.create({
   button: {
@@ -16,11 +17,19 @@ const styles = StyleSheet.create({
 export default ({ counter, increment, decrement }) => (
   <View style={{ alignItems: 'center', padding: 5 }}>
     <Text>{counter}</Text>
-    <TouchableOpacity onPress={increment} style={styles.button}>
-      <Text>INCREMENT</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={decrement} style={styles.button}>
-      <Text>DECREMENT</Text>
-    </TouchableOpacity>
+    <Button
+      raised
+      icon={{name: 'plus', type: 'entypo'}}
+      textStyle={{textAlign: 'center'}}
+      title={'INCREMENT'}
+      onPress={increment}
+    />
+    <Button
+      raised
+      icon={{name: 'minus', type: 'entypo'}}
+      textStyle={{textAlign: 'center'}}
+      title={'DECREMENT'}
+      onPress={decrement}
+    />
   </View>
 );
