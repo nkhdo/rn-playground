@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Button } from 'react-native-elements';
+import { NavigationActions } from 'react-navigation';
 
 import CounterContainer from './CounterContainer';
 
@@ -18,11 +20,19 @@ export default class HomeScreenContainer extends Component {
   };
 
   render() {
+    const foo = () => {
+      this.props.navigation.dispatch(NavigationActions.navigate({routeName: 'Settings'}));
+    };
+
     return (
       <View style={styles.container}>
         <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
         <CounterContainer />
+        <Button
+          raised
+          icon={{name: 'settings'}}
+          onPress={ foo }
+          title={'Settings'}/>
       </View>
     );
   }
